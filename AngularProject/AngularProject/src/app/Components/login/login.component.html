@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 col-lg-3 mt-lg-5">
+            <h3 style="text-align: center;">Login</h3>
+            <form class="form-signin needs-validation" novalidate [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="md-form form-group row mt-5">
+                    <!-- <i class="fa fa-times"></i> -->
+                    <i class="fas fa-user prefix"></i>
+                    <input mdbInput formControlName="UserName" type="text" id="UserName" class="form-control"
+                        [ngClass]="{ 'is-invalid':invalidLogin }">
+                    <label for=" UserName">User Name</label>
+                    <div class="invalid-feedback d-block" *ngIf="invalidLogin">
+                        Incorrect E-mail or Password
+                    </div>
+                </div>
+                <div class="md-form form-group row mt-5">
+                    <i class="fa fa-key prefix"></i>
+                    <input mdbInput formControlName="Password" type="password" id="Password" class="form-control"
+                        [ngClass]="{ 'is-invalid':invalidLogin }">
+                    <label for="Password">Password</label>
+                    <i (click)="show('Password')" class="fas fa-eye-slash field-icon" id="displayedIcon"></i>
+                    <div class="invalid-feedback d-block" *ngIf="invalidLogin">
+                        Incorrect E-mail or Password
+                    </div>
+                </div>
+                <div class="mt-5 ">
+                    <button type="submit" class="btn" value="Login"><i class="fa fa-envelope Icon"></i> Login</button>
+                </div>
+            </form>
+        </div>
+        <div class="mycontent-left col-lg-1 mt-5">
+        </div>
+        <!-- <div class="col-12">
+            <hr>
+        </div> -->
+        <div class="col-12 col-lg-4 mt-lg-5">
+            <h3 style="text-align: center;">Create Your Account</h3>
+            <div class="mt-5 col-2"></div>
+            <h5 class="mt-5">Create your customer account in just a few clicks! </h5>
+            <div class="mt-5"></div>
+            <div class="mt-5 ">
+                <button type="submit" class="btn"  (click) = "NavToRegisteration()"><i class="fa fa-envelope Icon"></i> Register</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="vl" style="border-right:1px solid gray ; height: 500px;"></div> -->

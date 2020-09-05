@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <table class="table table-hover table-responsive-md">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Product</th>
+                        <th>Date</th>
+                        <th>State</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of AllOrders">
+                        <td>{{order.orderOwner.userName}}</td>
+                        <td>
+                            <div *ngFor="let orderD of order.orderDetails">{{orderD.product.title}}
+                            </div>
+                        </td>
+                        <td>
+                            {{order.orderDate}}
+                        </td>
+
+                        <td *ngIf="order.state === 'accepted'">Accepted</td>
+                        <td *ngIf="order.state === 'rejected'">Rejected</td>
+                        <td *ngIf="order.state === 'Pending'">
+                            <select (change)="onChange($event.target.value,order)">
+                                <option value="Pending" selected hidden>Pending</option>
+                                <option value="accepted">Accepted</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

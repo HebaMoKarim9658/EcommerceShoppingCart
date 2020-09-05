@@ -1,0 +1,120 @@
+<div class="container-fluid">
+	<div class="row">
+		<!-- General Information -->
+		<div class="col-1"></div>
+		<div class="row">
+			<div class="col-12 col-md-3">
+				<div>
+					<div class="general_info_image" *ngIf="isDataLoaded">
+						<img [src]="currentUser.image" class="img-responsive">
+					</div>
+				</div>
+				<div class="general_info_content" *ngIf="isDataLoaded">
+					<p>{{currentUser.userName}}</p>
+					<p>{{currentUser.email}}</p>
+					<p>{{currentUser.phoneNumber}}</p>
+					<!-- <button class="btn btn-danger" routerLink="editProfile">Edit Profile</button> -->
+					<input type="button" value="Edit Profile" (click)="GoEdit()" class="btn btn-primary">
+				</div>
+			</div>
+		</div>
+		<!-- Main Content -->
+		<div class="col-12 col-lg-8 mt-1">
+			<div class="row">
+				<div class="col-12 col-lg-6 mb-2 ">
+					<div class="card">
+						<h5 class="card-header">Accepted</h5>
+						<div class="card-body">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>Product</th>
+										<th>Quantity</th>
+										<th>TotalPrice</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr *ngFor="let order of AcceptedOrders">
+										<div *ngIf></div>
+										<td>
+											<div *ngFor="let orderD of order.orderDetails">{{orderD.product.title}}
+											</div>
+										</td>
+										<td>
+											<div *ngFor="let orderD of order.orderDetails">{{orderD.quantity}}</div>
+										</td>
+										<td>{{order.totalPrice}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-lg-6">
+					<div class="card">
+						<h5 class="card-header">Rejected</h5>
+						<div class="card-body">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>Product</th>
+										<th>Quantity</th>
+										<th>TotalPrice</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr *ngFor="let order of RejectedOrders">
+										<td>
+											<div *ngFor="let orderD of order.orderDetails">{{orderD.product.title}}
+											</div>
+										</td>
+										<td>
+											<div *ngFor="let orderD of order.orderDetails">{{orderD.quantity}}</div>
+										</td>
+										<td>{{order.totalPrice}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="card col-12 mt-4">
+				<h5 class="card-header">Pending</h5>
+				<div class="card-body">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Product</th>
+								<th>Quantity</th>
+								<th>TotalPrice</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let order of PendingOrders">
+								<div *ngIf></div>
+								<td>
+									<div *ngFor="let orderD of order.orderDetails">{{orderD.product.title}}
+									</div>
+								</td>
+								<td>
+									<div *ngFor="let orderD of order.orderDetails">{{orderD.quantity}}</div>
+								</td>
+								<td>{{order.totalPrice}}</td>
+								<td><button class="btn btn-warning" (click)="CancelOrder(order.orderID)">Cancel</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

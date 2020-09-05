@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container-fluid">
+    <div *ngIf="Order === null" class="row">
+        <div class="col-5"></div>
+        <div class="col-3">
+            <img src="assets/img/empty-cart.png">
+        </div>
+    </div>
+    <div *ngIf="Order === null" class="row">
+        <div class="col-5"></div>
+        <div class="col-5" class="cartDiv">
+            <div>Your Cart is empty!</div>
+        </div>
+    </div>
+    <div *ngIf="Order === null" class="row">
+        <div class="col-5"></div>
+        <div class="col-6">
+            <button type="submit" routerLink="../product" class="btnn" value="StartShopping"> Start
+                Shopping</button>
+        </div>
+    </div>
+    <div class="row" *ngIf="Order !== null">
+        <div class="col-2" ngIF="Order"></div>
+        <table class="table table-hover col-8">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>ITEM</th>
+                    <th>QUANTITY</th>
+                    <th>UNIT PRICE</th>
+                    <th>SUBTOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let orderD of Order?.orderDetails">
+                    <th>
+                        <img [src]="orderD.product.image" width="60" height="60">
+                    </th>
+                    <th>{{orderD.product.title}}
+                        <div class="iconDiv"
+                            (click)="removeProduct(Order.orderID,orderD.product.productID,orderD.quantity)"> <i
+                                class="fa fa-trash-o"></i>
+                            Remove</div>
+                    </th>
+                    <th>{{orderD.quantity}}</th>
+                    <th>EGP {{orderD.product.price}}</th>
+                    <th>EGP {{orderD.subTotal}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row" *ngIf="Order !== null">
+        <div class="col-9"></div>
+        <div id="TotalDiv" class="col-3">ToTal: <span>EGP {{Order?.totalPrice}}</span>
+        </div>
+    </div>
+    <div class="row" *ngIf="Order !== null">
+        <div class="col-8"></div>
+        <div class="col-4">
+            <button type="submit" class="btn col-6" (click)="checkOut(Order.orderID)" value="Checkout">
+                CHECKOUT</button>
+            <button type="submit" routerLink="../product" class="btn col-6" value="ContinueShopping"> Continue
+                Shopping</button>
+        </div>
+    </div>
+</div>

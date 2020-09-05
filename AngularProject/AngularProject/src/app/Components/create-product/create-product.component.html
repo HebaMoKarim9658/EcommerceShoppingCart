@@ -1,0 +1,88 @@
+<div class="row">
+
+    <div class="col-2"></div>
+
+
+    <div class="col-8">
+        <div class="card">
+            <h5 class="card-header  text-dark text-center py-4 mb-2 m-2 rounded">
+                <strong>Create Product</strong>
+            </h5>
+
+
+            <div class="card-body px-lg-5 pt-0">
+                <form [formGroup]="CreateProductForm" style="color: #757575;" method="POST"
+                    (ngSubmit)="Submit(CreateProductForm.value)">
+
+                    <div class="md-form mt-1 ">
+                        <input mdbInput formControlName="title" type="text" id="Title" class="form-control">
+                        <label for="title">Title</label>
+
+                        <div class="text-danger"
+                            *ngIf="CreateProductForm.get('title').touched   && CreateProductForm.get('title').errors != null">
+                            <div *ngIf="CreateProductForm.get('title').errors.required">Required</div>
+                        </div>
+                    </div>
+
+
+                    <div class="md-form mt-1 ">
+                        <input mdbInput formControlName="details" type="text" id="details" class="form-control">
+                        <label for="Details">Details</label>
+
+                        <div class="text-danger"
+                            *ngIf="CreateProductForm.get('details').touched   && CreateProductForm.get('details').errors != null">
+                            <div *ngIf="CreateProductForm.get('details').errors.required">Required</div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group p-1">
+                        <label for="file">Product Image</label>
+                        <input formControlName="file" id="file" type="file" class="form-control"
+                            (change)=onFileChange($event)>
+                        <div class="general_info_image">
+                            <img [src]="" *ngIf="" style="height: 150px; width:300px" class="img-responsive">
+                        </div>
+
+                        <div class="text-danger"
+                            *ngIf="!IsFileSelected">
+                            <div>Required</div>
+                        </div>
+                    </div>
+
+
+                    <div class="md-form mt-1 ">
+                        <input mdbInput formControlName="price" type="text" id="price" class="form-control">
+                        <label for="Details">Price</label>
+                    </div>
+
+
+                    <div class="md-form mt-1">
+                        <select class="custom-select" formControlName="category" id="category"
+                            (change)="selectChangeHandler($event)">
+                            <option value="" disabled selected hidden>Choose Categoty</option>
+                            <option *ngFor="let category of categories" [value]="category.categoryID"> {{category.name}}
+                            </option>
+                        </select>
+                        <div class="text-danger"
+                            *ngIf="!IsCategorySelected">
+                            <div>Required</div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="mt-5 ">
+                        <button type="submit" class="btn"> Add product</button>
+                    </div>
+
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="col-2"></div>
+
+</div>

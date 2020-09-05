@@ -1,0 +1,54 @@
+<div class="card">
+    
+    <div class="card-body">
+      <div id="table" class="table-editable">
+        <form class="form-inline my-2 my-lg-0">
+            <input #ProductName class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (keyup)="filterProduct(ProductName.value)">
+
+        </form>
+
+
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+          <thead>
+            <tr>
+              <th class="text-center">Product ID</th>
+              <th class="text-center">Person Name</th>
+              <th class="text-center">Product Description</th>
+              <th class="text-center">Product Image</th>
+              <th class="text-center">Price</th>
+              
+              <th class="text-center">Category ID</th>
+              <th class="text-center">Remove</th>
+              <th class="text-center">Update</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of FilterdProduct">
+              <td class="pt-3-half">{{product.productID}}</td>
+              <td class="pt-3-half">{{product.title}}</td>
+              <td class="pt-3-half">{{product.details}}</td>
+              <td class="pt-3-half"><img [src]="product.image"></td>
+              <td class="pt-3-half">{{product.price}}</td>
+              <td class="pt-3-half">{{product.categoryID}}</td>
+              <td>
+                <span class="table-remove"><button type="button"
+                    class="btn btn-danger btn-rounded btn-sm my-0" (click)="DeleteProduct(product.productID)">Remove</button></span>
+              </td>
+              <td>
+                <span class="table-remove"><button type="button"
+                    class="btn btn-success btn-rounded btn-sm my-0" (click)="goUpdatePage(product.productID)">
+                    Update
+                  
+                </button></span>
+              </td>
+            </tr>
+         
+          </tbody>
+        </table>
+
+      <div class="text-center ">  <button class="m-1 btn btn-rounded" id="btnAdd" (click) = "addProduct()">Add product</button>  </div>
+
+      </div>
+    </div>
+  </div>

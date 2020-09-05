@@ -1,0 +1,12 @@
+img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.general_info,.main_content{
+    padding: 30px;
+}
+table{
+    width: 100%;
+}

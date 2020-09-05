@@ -1,0 +1,57 @@
+table td, th {
+           text-align: center;
+         }
+i{
+    font-size:24px;
+    color:#17a2b8;
+    padding-right: 5px;
+    cursor: pointer;
+}
+.iconDiv{
+    padding-top:10px;
+    color:#17a2b8;
+    font-size:15px;
+    cursor: pointer;
+}
+#TotalDiv{
+    font-size: 20px;
+    font-weight: bold;
+}
+#TotalDiv span{
+    color:#17a2b8;
+}
+.btn{
+        background-color: #17a2b8 ;
+        border: none;
+        color: white;
+        
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 20px;
+        display: inline;
+         margin: 4px 2px;
+        padding: 15px 32px; 
+        
+        }
+        .btnn{
+        background-color: #17a2b8 ;
+        border: none;
+        color: white;
+        
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 20px;
+        display: inline;
+         /* margin: 4px 2px;*/
+        padding: 15px 32px;  
+        
+        }
+       .cartDiv{
+           text-align: center;
+           font-weight: bold;
+           color:gray;
+            font-size: 20px;
+             padding: 15px 20px; 
+       }

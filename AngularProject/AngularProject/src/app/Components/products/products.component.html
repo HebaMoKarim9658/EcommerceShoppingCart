@@ -1,0 +1,25 @@
+<div class="alert">
+  <h2 class="text-center">Our Products</h2>
+
+  <form class="form-inline my-2 my-lg-0">
+      <input #ProductName class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (keyup)="filterProduct(ProductName.value)">
+      <!-- <button  class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button> -->
+  </form>
+
+  <div class="row row-cols-1 row-cols-md-3 allProducts">
+
+    <div class="col-md-4">
+      <div class="list-group">
+        <span  class="list-group-item">
+          Our Categories
+        </span>
+        <a routerLink="/" [queryParams]="{id:cat.categoryID}" class="list-group-item list-group-item-action"
+        *ngFor="let cat of Categories" [class.active]="id == cat.categoryID">{{cat.name}}</a>
+      </div>
+    </div>
+
+      <app-product *ngFor="let product of FilterdProduct" [product]="product"></app-product>
+  
+    
+  </div>
+</div>
